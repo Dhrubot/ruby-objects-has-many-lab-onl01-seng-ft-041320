@@ -6,6 +6,10 @@ class Author
     @name = name
   end
   
+  def self.post_count
+    Post.all.map {|post| post.author.name}.count
+  end
+  
   def posts 
     Post.all.select {|post| post.author.name == self.name}
   end
